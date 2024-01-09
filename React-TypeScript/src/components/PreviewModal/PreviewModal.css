@@ -1,0 +1,26 @@
+.modalContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.required-quantity, .available-quantity {
+    padding: 10px;
+    margin: 6px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.projectItem {
+    border: 1px solid black;
+    padding: 1%;
+}
+
+.available {
+    border: 1px solid lightgreen;
+    background: lightgreen;
+}
+
+.notAvailable {
+    border: 1px solid red;
+    background: red;
+}
