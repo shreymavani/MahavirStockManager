@@ -4,6 +4,7 @@ export enum Category  {
   SOAP ="Soap",
   TALC_POWDER ="Talc Powder",
   OTHER ="Other",
+  NA = "NA",
 }
 
 export enum Type {
@@ -19,6 +20,7 @@ export enum Type {
   BOTTLE = "Bottle",
   POUCHROLL = "Pouchroll",
   LEAFLET = "Leaflet",
+  NA = "NA",
 }
 
 export const INWARD_FORM_DEFAULT_STATE = {

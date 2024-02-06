@@ -17,8 +17,20 @@ export const FilterStock = () => {
       console.log("Error");
       return;
     }
+
+    let updatedCategory = category, updatedType = type
+
+    if(category=="NA"){
+      updatedCategory = null;
+      setCategory(null)
+    }
+    
+    if(type=="NA"){
+      updatedType = null;
+      setType(null)
+    }
     console.log("0");
-    const stock = await filterStocks(category, type);
+    const stock = await filterStocks(updatedCategory, updatedType);
     console.log(stock,"stock");
     setStock(stock);
     

@@ -10,7 +10,7 @@ export const fetchStocks = async () => {
   }
 }
 
-export const filterStocks = async (category: string, type: string) => {
+export const filterStocks = async (category: any, type: any) => {
   try{
   if(category && type) {
     console.log(category,type);
