@@ -2,7 +2,19 @@ import axios from "axios";
 
 export const createProjectModel = async(formData: any) => {
   try {
+    console.log("Inside",formData)
     const {data: response} = await axios.post(`http://localhost:8080/projectModel`,formData);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export const getProjectModel = async() => {
+  try {
+    
+    const {data: response} = await axios.get(`http://localhost:8080/projectModel/listAllModels`);
     return response;
   } catch (error) {
     console.log(error);

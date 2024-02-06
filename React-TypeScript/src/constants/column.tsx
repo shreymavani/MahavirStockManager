@@ -1,3 +1,124 @@
+export const modelColumn = [
+  {
+    title: 'Project Model Name',
+    dataIndex: 'projectName',
+    key: 'projectName',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'Glycerin',
+    dataIndex: 'Glycerin',
+    key: 'Glycerin',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'SLES',
+    dataIndex: 'SLES',
+    key: 'SLES',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'DM Water',
+    dataIndex: 'DM_Water',
+    key: 'DM_Water',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'SMP',
+    dataIndex: 'SMP',
+    key: 'SMP',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'Stearic',
+    dataIndex: 'Stearic',
+    key: 'Stearic',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'EDTA',
+    dataIndex: 'EDTA',
+    key: 'EDTA',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'E Wax',
+    dataIndex: 'E_Wax',
+    key: 'E_Wax',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  },
+  {
+    title: 'Noodles',
+    dataIndex: 'Noodles',
+    key: 'Noodles',
+    width: '10%',
+    render: (text) => {
+      return (
+        <span>
+          {text? text : 'N/A'}
+        </span>
+      )
+    }
+  }
+]
+
+
 export const stockColumn = [
   {
     title: 'Item Name',

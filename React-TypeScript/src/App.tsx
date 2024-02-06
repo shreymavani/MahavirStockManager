@@ -7,6 +7,7 @@ import { DashBoard } from './pages/DashBoard';
 import { InwardForm } from './pages/InwardForm';
 import { ProjectModelForm } from './pages/ProjectModelForm';
 import { ShowInventory } from './pages/ShowInventory/ShowInventory';
+import { ModelList } from './pages/ProjectModelList';
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path='inwardForm' element={<InwardForm/>}/>
           <Route path='/project-model' element={<ProjectModelForm/>}/>
           <Route path='/update-inventory' element={<ShowInventory/>}/>
+          <Route path='/model-list' element={<ModelList/>}/>
         </Routes>
       </Router>
     </>

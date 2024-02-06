@@ -5,6 +5,7 @@ import com.mahavir.cosmetic.model.ProjectModel;
 import com.mahavir.cosmetic.service.ProjectModelService;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,6 +57,11 @@ public class ProjectModelController {
         return projectModelService.productionPlanConsumptionPossible(modelIds);
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Optional<ProjectModel> getProjectModels(@PathVariable String id) {
+        return projectModelService.getModel(id);
+    }
 
     @GetMapping("/listAllModels")
     public List<ProjectModel> getAllProjectModels() {

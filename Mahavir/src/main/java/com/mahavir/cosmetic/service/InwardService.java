@@ -3,12 +3,18 @@ package com.mahavir.cosmetic.service;
 import com.mahavir.cosmetic.model.Inward;
 import com.mahavir.cosmetic.model.Stock;
 import com.mahavir.cosmetic.repository.InwardRepository;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -51,7 +57,20 @@ public class InwardService {
     }
 
     public List<Inward> findAllInwards() {
-        return inwardRepository.findAll();
+        List<Inward> list = inwardRepository.findAll();
+    return list.stream()
+            .sorted(Comparator.comparing(this::parseDate).reversed())
+            .collect(Collectors.toList());
+}
+
+    private Date parseDate(Inward inward) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(TIME_FORMATE);
+        try {
+            return dateFormat.parse(inward.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public String deleteTask(String itemId) {

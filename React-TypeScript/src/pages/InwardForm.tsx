@@ -21,7 +21,7 @@ export const InwardForm = () => {
 
     const response = await createInward(formData);
     setFormData(INWARD_FORM_DEFAULT_STATE)
-    alert('Form data submitted successfully, dhentende')
+    alert('Form data submitted successfully')
   }
 
   const onChange = (e:any) => {

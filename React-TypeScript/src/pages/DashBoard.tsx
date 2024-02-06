@@ -30,6 +30,10 @@ export const DashBoard = () => {
         <Button onClick={() => navigate('/update-inventory')}>
           Update Inventory
         </Button>
+
+        <Button onClick={() => navigate('/model-list')}>
+          Show Project Models
+        </Button>
       </div>
     </>
   )

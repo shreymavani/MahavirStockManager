@@ -27,8 +27,36 @@ import { createProjectModel } from "../features/project-model/projectModel.servi
       alert('Please enter a project name');
       return;
     }
-    const response = await createProjectModel(formData);
-    console.log(formData,formData);
+    
+     const payload = {
+      projectName: formData.projectName,
+      quantity: {
+        Glycerin: formData.Glycerin,
+        SLES: formData.SLES,
+        DM_Water: formData.DM_Water,
+        SMP: formData.SMP,
+        Stearic: formData.Stearic,
+        EDTA: formData.EDTA,
+        E_Wax: formData.E_Wax,
+        Noodles: formData.Noodles
+      }
+      
+    }
+
+    const response = await createProjectModel(payload);
+    
+    if(response){
+      setFormData({projectName: '',
+      Glycerin: 0,
+      SLES: 0,
+      DM_Water: 0,
+      SMP: 0,
+      Stearic: 0,
+      EDTA: 0,
+      E_Wax: 0,
+      Noodles: 0})
+      alert("ProjectModel created/updated successfully")
+    }
   }
 
   const { projectName, Glycerin, SLES, DM_Water, SMP, Stearic, EDTA, E_Wax,Noodles } = formData;
