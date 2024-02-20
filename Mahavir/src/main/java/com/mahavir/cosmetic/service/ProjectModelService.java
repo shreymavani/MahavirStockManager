@@ -1,6 +1,7 @@
 package com.mahavir.cosmetic.service;
 
 import com.mahavir.cosmetic.model.Stock;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import com.mahavir.cosmetic.model.ProjectModel;
@@ -40,9 +41,9 @@ public class ProjectModelService {
     public String productionPlanConsumptionPossible(@RequestBody List<String> modelIds) {
         Map<String, Long> totalQuantityRequired = new HashMap<>();
         Map<String, Long> totalQuantityAvailable = currentQuantityInStock(modelIds);
-        String firstStockInsufficiency = "No plan possible";
-        //        int inSufficient = 0;
-        //        String listOfInSufficientItem;
+
+        boolean inSufficient = false;
+        List<String> listOfInSufficientItem = new ArrayList<>();
 
         for (String id : modelIds) {
             Optional<ProjectModel> projectModel = getModel(id);
@@ -57,21 +58,21 @@ public class ProjectModelService {
                     }
 
                     if (totalQuantityRequired.get(entry.getKey()) > totalQuantityAvailable.get(entry.getKey())) {
+                        inSufficient = true;
+                        listOfInSufficientItem.add(entry.getKey());
+
                         logger.info("This Production model is not possible for production because of insufficient quantity of " + entry.getKey() + " Current available quantity: " + totalQuantityAvailable.get(
                                 entry.getKey()) + "Total Required quantity: " + totalQuantityRequired.get((entry.getKey())));
-                        return firstStockInsufficiency;
                     }
-                    //                        inSufficient = 1;
-                    //                        listOfInSufficientItem += entry.getKey() + "," + totalQuantityRequired.get(entry.getKey());
-                    //                    }
                 }
             }
-            firstStockInsufficiency = id;
         }
 
-        logger.info("Project models planning for successfully calculated :: " + firstStockInsufficiency);
+        if (inSufficient) {
+            return listOfInSufficientItem.get(0);
+        }
 
-        return firstStockInsufficiency;
+        return "No plan possible";
     }
 
     public String deleteModel(String projectId) {
